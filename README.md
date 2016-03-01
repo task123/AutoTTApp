@@ -26,7 +26,7 @@ This app is not uploaded to the App Store, but anyone is free to download the pr
   * They give information of then the buttons are pressed and released
 
 ## How to communicate with it
-The app communicates over a tcp connection with text commands. (In addition to and seperate from the video stream (or webpage) it can receive over http). The general structure of these messages/commands is as follows; they start with the type of message followed by "#$#", then the message (or data) before it finishes with "%^%". Example: "Gyro#$#0.001238;1.234522;-2.209182%^%" 
+The app communicates over a tcp connection with text commands. (In addition to and seperate from the video stream (or webpage) it can receive over http). The general structure of these messages/commands is as follows; they start with the type of message followed by "#$#", then the message (or data) before it finishes with "%^%". Example: "Gyro#$#0.001238;1.234522;-2.209182%^%" One does not have to implement all this commands, only handle that they are sendt.
 
 ### Commands sendt from the app
 * Gyro#$#"roll";"pitch";"yaw"%^%
