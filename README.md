@@ -1,4 +1,5 @@
 # AutoTTApp
+iOS app used to control a remote controlled car by tilting the iOS device.
 
 ## Purpose
 This app was made as part of this project (https://github.com/task123/AutoTT), and was used to control an remote controlled car with two cameras based on a raspberry pi. It controlled the car by tilting the phone and show a video stream from the car. The app is very suitable for controlling a device (Raspberry Pi is an excellent choice) over WiFi with the gyroscope in an iPhone (or other iOS devices) and to show video stream. Althought it work well for simple controlling of devices over WiFi it got the capability to support quite advanced projects (which was it intended purpose) without making any changes to the app. For tips on how to implement tings on the server-side in the device you are trying to control, look at the project (https://github.com/task123/AutoTT).
@@ -9,7 +10,7 @@ This app is not uploaded to the App Store, but anyone is free to download the pr
 ## Capabilities/features
 * Connect over WiFi with a tcp connection given a ip address and port number.
 * Send data of the rotation of the iOS device (Ideal for controlling devices with gyroscope data from iPhone).
-..* Can control the update speed of rotation data over the tcp connection.
+** Can control the update speed of rotation data over the tcp connection.
 ..* Can adjust the sensitivity.
 ..* Can set the neutral tilting position. 
 * Can show webpages. Ideal for sending video stream from a http server. ( (https://github.com/task123/AutoTT) show a way of doing it. )
