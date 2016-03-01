@@ -1,0 +1,604 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		FE0929CF1C8061AC00C5AF9F /* GyroscopeData.m in Sources */ = {isa = PBXBuildFile; fileRef = FE0929CE1C8061AC00C5AF9F /* GyroscopeData.m */; };
+		FE3177F61C74D022005229E0 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FE3177F51C74D022005229E0 /* MainViewController.m */; };
+		FE3177F91C74D04C005229E0 /* MenuTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FE3177F81C74D04C005229E0 /* MenuTableViewController.m */; };
+		FE3177FC1C74D10A005229E0 /* ModesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FE3177FB1C74D10A005229E0 /* ModesTableViewController.m */; };
+		FE3FD01E1C82F2600054B216 /* raspberryPiLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = FE3FD01D1C82F2600054B216 /* raspberryPiLogo.png */; };
+		FE3FD0211C83287E0054B216 /* SetStreamSourceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FE3FD0201C83287E0054B216 /* SetStreamSourceViewController.m */; };
+		FE3FD0241C83CB1D0054B216 /* ModesInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FE3FD0231C83CB1D0054B216 /* ModesInfoViewController.m */; };
+		FE3FD0261C8501500054B216 /* assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FE3FD0251C8501500054B216 /* assets.xcassets */; };
+		FE69C8091C7B0EF900A0650B /* CouldNotConnectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FE69C8081C7B0EF900A0650B /* CouldNotConnectViewController.m */; };
+		FE6F75871C785DF100ECA7EC /* ShutDownViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FE6F75861C785DF100ECA7EC /* ShutDownViewController.m */; };
+		FE6F75891C787CD000ECA7EC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FE6F75881C787CD000ECA7EC /* Main.storyboard */; };
+		FE842BA31C72226F00AA882E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FE842BA21C72226F00AA882E /* main.m */; };
+		FE842BA61C72226F00AA882E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FE842BA51C72226F00AA882E /* AppDelegate.m */; };
+		FE842BA91C72226F00AA882E /* ConnectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FE842BA81C72226F00AA882E /* ConnectionViewController.m */; };
+		FE842BB11C72226F00AA882E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FE842BAF1C72226F00AA882E /* LaunchScreen.storyboard */; };
+		FE842BBC1C72226F00AA882E /* raspberryCarTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FE842BBB1C72226F00AA882E /* raspberryCarTests.m */; };
+		FE842BC71C72226F00AA882E /* raspberryCarUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = FE842BC61C72226F00AA882E /* raspberryCarUITests.m */; };
+		FE892E551C763327001B126A /* StatusTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FE892E541C763327001B126A /* StatusTableViewController.m */; };
+		FE892E5A1C7633BC001B126A /* TCPConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = FE892E591C7633BC001B126A /* TCPConnection.m */; };
+		FE892E761C77D347001B126A /* SendMessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FE892E751C77D347001B126A /* SendMessageViewController.m */; };
+		FEEDD59D1C7DB6F800F24233 /* PopUpMessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FEEDD59C1C7DB6F800F24233 /* PopUpMessageViewController.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		FE842BB81C72226F00AA882E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FE842B961C72226F00AA882E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FE842B9D1C72226F00AA882E;
+			remoteInfo = raspberryCar;
+		};
+		FE842BC31C72226F00AA882E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FE842B961C72226F00AA882E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FE842B9D1C72226F00AA882E;
+			remoteInfo = raspberryCar;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		FE0929CD1C8061AC00C5AF9F /* GyroscopeData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GyroscopeData.h; sourceTree = "<group>"; };
+		FE0929CE1C8061AC00C5AF9F /* GyroscopeData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GyroscopeData.m; sourceTree = "<group>"; };
+		FE3177F41C74D022005229E0 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
+		FE3177F51C74D022005229E0 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
+		FE3177F71C74D04C005229E0 /* MenuTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuTableViewController.h; sourceTree = "<group>"; };
+		FE3177F81C74D04C005229E0 /* MenuTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuTableViewController.m; sourceTree = "<group>"; };
+		FE3177FA1C74D10A005229E0 /* ModesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModesTableViewController.h; sourceTree = "<group>"; };
+		FE3177FB1C74D10A005229E0 /* ModesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModesTableViewController.m; sourceTree = "<group>"; };
+		FE3FD01D1C82F2600054B216 /* raspberryPiLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = raspberryPiLogo.png; sourceTree = "<group>"; };
+		FE3FD01F1C83287E0054B216 /* SetStreamSourceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SetStreamSourceViewController.h; sourceTree = "<group>"; };
+		FE3FD0201C83287E0054B216 /* SetStreamSourceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SetStreamSourceViewController.m; sourceTree = "<group>"; };
+		FE3FD0221C83CB1D0054B216 /* ModesInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModesInfoViewController.h; sourceTree = "<group>"; };
+		FE3FD0231C83CB1D0054B216 /* ModesInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModesInfoViewController.m; sourceTree = "<group>"; };
+		FE3FD0251C8501500054B216 /* assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = assets.xcassets; sourceTree = "<group>"; };
+		FE69C8071C7B0EF900A0650B /* CouldNotConnectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CouldNotConnectViewController.h; sourceTree = "<group>"; };
+		FE69C8081C7B0EF900A0650B /* CouldNotConnectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CouldNotConnectViewController.m; sourceTree = "<group>"; };
+		FE6F75851C785DF100ECA7EC /* ShutDownViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShutDownViewController.h; sourceTree = "<group>"; };
+		FE6F75861C785DF100ECA7EC /* ShutDownViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShutDownViewController.m; sourceTree = "<group>"; };
+		FE6F75881C787CD000ECA7EC /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		FE842B9E1C72226F00AA882E /* AutoTT.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AutoTT.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		FE842BA21C72226F00AA882E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		FE842BA41C72226F00AA882E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		FE842BA51C72226F00AA882E /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		FE842BA71C72226F00AA882E /* ConnectionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ConnectionViewController.h; sourceTree = "<group>"; };
+		FE842BA81C72226F00AA882E /* ConnectionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ConnectionViewController.m; sourceTree = "<group>"; };
+		FE842BB01C72226F00AA882E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		FE842BB21C72226F00AA882E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FE842BB71C72226F00AA882E /* AutoTT.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AutoTT.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		FE842BBB1C72226F00AA882E /* raspberryCarTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = raspberryCarTests.m; sourceTree = "<group>"; };
+		FE842BBD1C72226F00AA882E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FE842BC21C72226F00AA882E /* AutoTT.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AutoTT.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		FE842BC61C72226F00AA882E /* raspberryCarUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = raspberryCarUITests.m; sourceTree = "<group>"; };
+		FE842BC81C72226F00AA882E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FE892E531C763327001B126A /* StatusTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatusTableViewController.h; sourceTree = "<group>"; };
+		FE892E541C763327001B126A /* StatusTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatusTableViewController.m; sourceTree = "<group>"; };
+		FE892E581C7633BC001B126A /* TCPConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCPConnection.h; sourceTree = "<group>"; };
+		FE892E591C7633BC001B126A /* TCPConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCPConnection.m; sourceTree = "<group>"; };
+		FE892E751C77D347001B126A /* SendMessageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SendMessageViewController.m; sourceTree = "<group>"; };
+		FE892E771C77D42C001B126A /* SendMessageViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SendMessageViewController.h; sourceTree = "<group>"; };
+		FEEDD59B1C7DB6F800F24233 /* PopUpMessageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopUpMessageViewController.h; sourceTree = "<group>"; };
+		FEEDD59C1C7DB6F800F24233 /* PopUpMessageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopUpMessageViewController.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		FE842B9B1C72226F00AA882E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FE842BB41C72226F00AA882E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FE842BBF1C72226F00AA882E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		FE842B951C72226F00AA882E = {
+			isa = PBXGroup;
+			children = (
+				FE842BA01C72226F00AA882E /* autoTT */,
+				FE842BBA1C72226F00AA882E /* autoTTTests */,
+				FE842BC51C72226F00AA882E /* autoTTUITests */,
+				FE842B9F1C72226F00AA882E /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		FE842B9F1C72226F00AA882E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FE842B9E1C72226F00AA882E /* AutoTT.app */,
+				FE842BB71C72226F00AA882E /* AutoTT.xctest */,
+				FE842BC21C72226F00AA882E /* AutoTT.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		FE842BA01C72226F00AA882E /* autoTT */ = {
+			isa = PBXGroup;
+			children = (
+				FEEDD59B1C7DB6F800F24233 /* PopUpMessageViewController.h */,
+				FEEDD59C1C7DB6F800F24233 /* PopUpMessageViewController.m */,
+				FE6F75851C785DF100ECA7EC /* ShutDownViewController.h */,
+				FE6F75861C785DF100ECA7EC /* ShutDownViewController.m */,
+				FE842BA41C72226F00AA882E /* AppDelegate.h */,
+				FE842BA51C72226F00AA882E /* AppDelegate.m */,
+				FE842BA71C72226F00AA882E /* ConnectionViewController.h */,
+				FE842BA81C72226F00AA882E /* ConnectionViewController.m */,
+				FE0929CD1C8061AC00C5AF9F /* GyroscopeData.h */,
+				FE0929CE1C8061AC00C5AF9F /* GyroscopeData.m */,
+				FE6F75881C787CD000ECA7EC /* Main.storyboard */,
+				FE3FD0221C83CB1D0054B216 /* ModesInfoViewController.h */,
+				FE3FD0231C83CB1D0054B216 /* ModesInfoViewController.m */,
+				FE3FD01F1C83287E0054B216 /* SetStreamSourceViewController.h */,
+				FE3FD0201C83287E0054B216 /* SetStreamSourceViewController.m */,
+				FE3177F41C74D022005229E0 /* MainViewController.h */,
+				FE3177F51C74D022005229E0 /* MainViewController.m */,
+				FE892E581C7633BC001B126A /* TCPConnection.h */,
+				FE892E591C7633BC001B126A /* TCPConnection.m */,
+				FE69C8071C7B0EF900A0650B /* CouldNotConnectViewController.h */,
+				FE69C8081C7B0EF900A0650B /* CouldNotConnectViewController.m */,
+				FE892E771C77D42C001B126A /* SendMessageViewController.h */,
+				FE892E751C77D347001B126A /* SendMessageViewController.m */,
+				FE892E531C763327001B126A /* StatusTableViewController.h */,
+				FE3FD0251C8501500054B216 /* assets.xcassets */,
+				FE892E541C763327001B126A /* StatusTableViewController.m */,
+				FE3177F71C74D04C005229E0 /* MenuTableViewController.h */,
+				FE3177F81C74D04C005229E0 /* MenuTableViewController.m */,
+				FE3177FA1C74D10A005229E0 /* ModesTableViewController.h */,
+				FE3177FB1C74D10A005229E0 /* ModesTableViewController.m */,
+				FE842BAF1C72226F00AA882E /* LaunchScreen.storyboard */,
+				FE842BB21C72226F00AA882E /* Info.plist */,
+				FE842BA11C72226F00AA882E /* Supporting Files */,
+			);
+			name = autoTT;
+			path = raspberryCar;
+			sourceTree = "<group>";
+		};
+		FE842BA11C72226F00AA882E /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				FE3FD01D1C82F2600054B216 /* raspberryPiLogo.png */,
+				FE842BA21C72226F00AA882E /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		FE842BBA1C72226F00AA882E /* autoTTTests */ = {
+			isa = PBXGroup;
+			children = (
+				FE842BBB1C72226F00AA882E /* raspberryCarTests.m */,
+				FE842BBD1C72226F00AA882E /* Info.plist */,
+			);
+			name = autoTTTests;
+			path = raspberryCarTests;
+			sourceTree = "<group>";
+		};
+		FE842BC51C72226F00AA882E /* autoTTUITests */ = {
+			isa = PBXGroup;
+			children = (
+				FE842BC61C72226F00AA882E /* raspberryCarUITests.m */,
+				FE842BC81C72226F00AA882E /* Info.plist */,
+			);
+			name = autoTTUITests;
+			path = raspberryCarUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		FE842B9D1C72226F00AA882E /* AutoTT */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FE842BCB1C72226F00AA882E /* Build configuration list for PBXNativeTarget "AutoTT" */;
+			buildPhases = (
+				FE842B9A1C72226F00AA882E /* Sources */,
+				FE842B9B1C72226F00AA882E /* Frameworks */,
+				FE842B9C1C72226F00AA882E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AutoTT;
+			productName = raspberryCar;
+			productReference = FE842B9E1C72226F00AA882E /* AutoTT.app */;
+			productType = "com.apple.product-type.application";
+		};
+		FE842BB61C72226F00AA882E /* AutoTTTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FE842BCE1C72226F00AA882E /* Build configuration list for PBXNativeTarget "AutoTTTests" */;
+			buildPhases = (
+				FE842BB31C72226F00AA882E /* Sources */,
+				FE842BB41C72226F00AA882E /* Frameworks */,
+				FE842BB51C72226F00AA882E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FE842BB91C72226F00AA882E /* PBXTargetDependency */,
+			);
+			name = AutoTTTests;
+			productName = raspberryCarTests;
+			productReference = FE842BB71C72226F00AA882E /* AutoTT.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		FE842BC11C72226F00AA882E /* AutoTTUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FE842BD11C72226F00AA882E /* Build configuration list for PBXNativeTarget "AutoTTUITests" */;
+			buildPhases = (
+				FE842BBE1C72226F00AA882E /* Sources */,
+				FE842BBF1C72226F00AA882E /* Frameworks */,
+				FE842BC01C72226F00AA882E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FE842BC41C72226F00AA882E /* PBXTargetDependency */,
+			);
+			name = AutoTTUITests;
+			productName = raspberryCarUITests;
+			productReference = FE842BC21C72226F00AA882E /* AutoTT.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		FE842B961C72226F00AA882E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0710;
+				ORGANIZATIONNAME = "Håkon Austlid Taskén";
+				TargetAttributes = {
+					FE842B9D1C72226F00AA882E = {
+						CreatedOnToolsVersion = 7.1.1;
+						DevelopmentTeam = EVSEWJ4LVQ;
+					};
+					FE842BB61C72226F00AA882E = {
+						CreatedOnToolsVersion = 7.1.1;
+						TestTargetID = FE842B9D1C72226F00AA882E;
+					};
+					FE842BC11C72226F00AA882E = {
+						CreatedOnToolsVersion = 7.1.1;
+						TestTargetID = FE842B9D1C72226F00AA882E;
+					};
+				};
+			};
+			buildConfigurationList = FE842B991C72226F00AA882E /* Build configuration list for PBXProject "AutoTT" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = FE842B951C72226F00AA882E;
+			productRefGroup = FE842B9F1C72226F00AA882E /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				FE842B9D1C72226F00AA882E /* AutoTT */,
+				FE842BB61C72226F00AA882E /* AutoTTTests */,
+				FE842BC11C72226F00AA882E /* AutoTTUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		FE842B9C1C72226F00AA882E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FE6F75891C787CD000ECA7EC /* Main.storyboard in Resources */,
+				FE842BB11C72226F00AA882E /* LaunchScreen.storyboard in Resources */,
+				FE3FD0261C8501500054B216 /* assets.xcassets in Resources */,
+				FE3FD01E1C82F2600054B216 /* raspberryPiLogo.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FE842BB51C72226F00AA882E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FE842BC01C72226F00AA882E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		FE842B9A1C72226F00AA882E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FE3FD0211C83287E0054B216 /* SetStreamSourceViewController.m in Sources */,
+				FE842BA91C72226F00AA882E /* ConnectionViewController.m in Sources */,
+				FE892E5A1C7633BC001B126A /* TCPConnection.m in Sources */,
+				FE3FD0241C83CB1D0054B216 /* ModesInfoViewController.m in Sources */,
+				FE842BA61C72226F00AA882E /* AppDelegate.m in Sources */,
+				FE3177FC1C74D10A005229E0 /* ModesTableViewController.m in Sources */,
+				FE892E551C763327001B126A /* StatusTableViewController.m in Sources */,
+				FE842BA31C72226F00AA882E /* main.m in Sources */,
+				FE3177F61C74D022005229E0 /* MainViewController.m in Sources */,
+				FE0929CF1C8061AC00C5AF9F /* GyroscopeData.m in Sources */,
+				FEEDD59D1C7DB6F800F24233 /* PopUpMessageViewController.m in Sources */,
+				FE69C8091C7B0EF900A0650B /* CouldNotConnectViewController.m in Sources */,
+				FE6F75871C785DF100ECA7EC /* ShutDownViewController.m in Sources */,
+				FE3177F91C74D04C005229E0 /* MenuTableViewController.m in Sources */,
+				FE892E761C77D347001B126A /* SendMessageViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FE842BB31C72226F00AA882E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FE842BBC1C72226F00AA882E /* raspberryCarTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FE842BBE1C72226F00AA882E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FE842BC71C72226F00AA882E /* raspberryCarUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		FE842BB91C72226F00AA882E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FE842B9D1C72226F00AA882E /* AutoTT */;
+			targetProxy = FE842BB81C72226F00AA882E /* PBXContainerItemProxy */;
+		};
+		FE842BC41C72226F00AA882E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FE842B9D1C72226F00AA882E /* AutoTT */;
+			targetProxy = FE842BC31C72226F00AA882E /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		FE842BAF1C72226F00AA882E /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FE842BB01C72226F00AA882E /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		FE842BC91C72226F00AA882E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		FE842BCA1C72226F00AA882E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		FE842BCC1C72226F00AA882E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				INFOPLIST_FILE = raspberryCar/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "Ha-kon-Austlid-Taske-n.raspberryCar";
+				PRODUCT_NAME = AutoTT;
+				PROVISIONING_PROFILE = "";
+			};
+			name = Debug;
+		};
+		FE842BCD1C72226F00AA882E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				INFOPLIST_FILE = raspberryCar/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "Ha-kon-Austlid-Taske-n.raspberryCar";
+				PRODUCT_NAME = AutoTT;
+				PROVISIONING_PROFILE = "";
+			};
+			name = Release;
+		};
+		FE842BCF1C72226F00AA882E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = raspberryCarTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "Ha-kon-Austlid-Taske-n.raspberryCarTests";
+				PRODUCT_NAME = AutoTT;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AutoTT.app/AutoTT";
+			};
+			name = Debug;
+		};
+		FE842BD01C72226F00AA882E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = raspberryCarTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "Ha-kon-Austlid-Taske-n.raspberryCarTests";
+				PRODUCT_NAME = AutoTT;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AutoTT.app/AutoTT";
+			};
+			name = Release;
+		};
+		FE842BD21C72226F00AA882E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = raspberryCarUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "Ha-kon-Austlid-Taske-n.raspberryCarUITests";
+				PRODUCT_NAME = AutoTT;
+				TEST_TARGET_NAME = raspberryCar;
+				USES_XCTRUNNER = YES;
+			};
+			name = Debug;
+		};
+		FE842BD31C72226F00AA882E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = raspberryCarUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "Ha-kon-Austlid-Taske-n.raspberryCarUITests";
+				PRODUCT_NAME = AutoTT;
+				TEST_TARGET_NAME = raspberryCar;
+				USES_XCTRUNNER = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		FE842B991C72226F00AA882E /* Build configuration list for PBXProject "AutoTT" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FE842BC91C72226F00AA882E /* Debug */,
+				FE842BCA1C72226F00AA882E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FE842BCB1C72226F00AA882E /* Build configuration list for PBXNativeTarget "AutoTT" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FE842BCC1C72226F00AA882E /* Debug */,
+				FE842BCD1C72226F00AA882E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FE842BCE1C72226F00AA882E /* Build configuration list for PBXNativeTarget "AutoTTTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FE842BCF1C72226F00AA882E /* Debug */,
+				FE842BD01C72226F00AA882E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FE842BD11C72226F00AA882E /* Build configuration list for PBXNativeTarget "AutoTTUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FE842BD21C72226F00AA882E /* Debug */,
+				FE842BD31C72226F00AA882E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = FE842B961C72226F00AA882E /* Project object */;
+}
