@@ -10,20 +10,20 @@ This app is not uploaded to the App Store, but anyone is free to download the pr
 ## Capabilities/features
 * Connect over WiFi with a tcp connection given a ip address and port number.
 * Send data of the rotation of the iOS device (Ideal for controlling devices with gyroscope data from iPhone).
-** Can control the update speed of rotation data over the tcp connection.
-..* Can adjust the sensitivity.
-..* Can set the neutral tilting position. 
+  * Can control the update speed of rotation data over the tcp connection.
+  * Can adjust the sensitivity.
+  * Can set the neutral tilting position. 
 * Can show webpages. Ideal for sending video stream from a http server. ( (https://github.com/task123/AutoTT) show a way of doing it. )
-..* Can easily switch the the video stream (webpage) on and off.
-..* Can send messages over the tcp connection the change the video quality.
+  * Can easily switch the the video stream (webpage) on and off.
+  * Can send messages over the tcp connection the change the video quality.
 * Gives the opportunity to select from a list of modes sendt to the iOS device over the tcp connection. (It sends a message of which mode you selected to the devices you are trying to control.)
-..* Can give extra infomation about each of the modes if it is sendt to you iOS device.
+  * Can give extra infomation about each of the modes if it is sendt to you iOS device.
 * Can show a list of paramerter indicating the status of the device you are trying to control. (temperatur, battery percentage, etc.)
 * Can send messages to and from your device.
-..* Message sendt to your iOS device will pop-up on your screen (unless you are in the message window).
+  * Message sendt to your iOS device will pop-up on your screen (unless you are in the message window).
 * It has two transparrent buttons on the left and right side of the main view
-..* These can be turn on and off
-..* They give information of then the buttons are pressed and released
+  * These can be turn on and off
+  * They give information of then the buttons are pressed and released
 
 ## How to communicate with it
 The app communicates over a tcp connection with text commands. (In addition to and seperate from the video stream (or webpage) it can receive over http). The general structure of these messages/commands is as follows; they start with the type of message followed by "#$#", then the message (or data) before it finishes with "%^%". Example: "Gyro#$#0.001238;1.234522;-2.209182%^%" 
