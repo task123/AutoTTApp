@@ -39,10 +39,10 @@ The app communicates over a tcp connection with text commands. (In addition to a
 * ShutDown#$#%^%
 * VideoStream#$#"On or off"%^%
 * VideoQuality#$#"High, Medium or Low"%^%
-* LeftButtonTouchDownn#$#%^%
-* RightButtonTouchDownn#$#%^%
-* LeftButtonTouchUpn#$#%^%
-* RightButtonTouchUpn#$#%^%
+* LeftButtonTouchDown#$#%^%
+* RightButtonTouchDown#$#%^%
+* LeftButtonTouchUp#$#%^%
+* RightButtonTouchUp#$#%^%
 
 ### Commands sendt to the app
 * Gyro#$#"a number seconds between each time "Gyro#$#"roll";"pitch";"yaw"%^%" is sendt"%^%
