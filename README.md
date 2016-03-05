@@ -29,29 +29,32 @@ This app is not uploaded to the App Store, but anyone is free to download the pr
 The app communicates over a tcp connection with text commands. (In addition to and seperate from the video stream (or webpage) it can receive over http). The general structure of these messages/commands is as follows; they start with the type of message followed by "#$#", then the message (or data) before it finishes with "%^%\r\n". Example: "Gyro#$#0.001238;1.234522;-2.209182%^%" One does not have to implement all this commands, only handle that they are sendt.
 
 ### Commands sendt from the app
-* Gyro#$#"roll";"pitch";"yaw"%^%
-* Modes#$#%^%
-* InfoModes#$#%^%
-* Status#$#%^%
-* Stop#$#%^%
-* Continue#$#%^%
-* Disconnect#$#%^%
-* ShutDown#$#%^%
-* VideoStream#$#"On or off"%^%
-* VideoQuality#$#"High, Medium or Low"%^%
-* LeftButtonTouchDown#$#%^%
-* RightButtonTouchDown#$#%^%
-* LeftButtonTouchUp#$#%^%
-* RightButtonTouchUp#$#%^%
+* Gyro#$#"roll";"pitch";"yaw"%^%\r\n
+* GyroStop#$#%^%\r\n
+* MainView#$#entered%^%\r\n
+* MainView#$#exited%^%\r\n
+* Modes#$#%^%\r\n
+* InfoModes#$#%^%\r\n
+* Status#$#%^%\r\n
+* Stop#$#%^%\r\n
+* Continue#$#%^%\r\n
+* Disconnect#$#%^%\r\n
+* ShutDown#$#%^%\r\n
+* VideoStream#$#"On or off"%^%\r\n
+* VideoQuality#$#"High, Medium or Low"%^%\r\n
+* LeftButtonTouchDown#$#%^%\r\n
+* RightButtonTouchDown#$#%^%\r\n
+* LeftButtonTouchUp#$#%^%\r\n
+* RightButtonTouchUp#$#%^%\r\n
 
 ### Commands sendt to the app
-* Gyro#$#"a number seconds between each time "Gyro#$#"roll";"pitch";"yaw"%^%" is sendt"%^%
-* Message#$#"the message you wish to send"%^%
-* Modes#$#"list of modes seperated with semicolon, ';'"%^%
-* InfoModes#$#"list seperated with semicolon, ';', giving extra information about the modes"%^%
-* Status#$#"list seperated with semicolon, ';', giving infomation about the status of the device you wish to control (temp., battery percentage, etc.)"%^%
-* ButtonsOn#$#%^%
-* ButtonsOff#$#%^%
+* Gyro#$#"number seconds between each time gyroscopic data is sendt"%^%\r\n
+* Message#$#"the message you wish to send"%^%\r\n
+* Modes#$#"list of modes seperated with semicolon, ';'"%^%\r\n
+* InfoModes#$#"list seperated with semicolon, ';', giving extra information about the modes"%^%\r\n
+* Status#$#"list seperated with semicolon, ';', giving infomation about the status of the device you wish to control (temp., battery percentage, etc.)"%^%\r\n
+* ButtonsOn#$#%^%\r\n
+* ButtonsOff#$#%^%\r\n
 
 ## Potential problems
 * Not a problem for most projects, but it sometimes happens that some messages are lagging a little bit before several messages arrive at once. Did not present a problem in our project. The cause of this is unknown, and as it is only tested with the set-up form our project, the problem could potentially lie in our implementation of the python server it talked to.
