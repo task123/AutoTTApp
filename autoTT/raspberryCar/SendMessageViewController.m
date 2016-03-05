@@ -8,6 +8,7 @@
 
 #import "SendMessageViewController.h"
 #import <CoreText/CoreText.h>
+#import "MainViewController.h"
 
 @interface SendMessageViewController()
 @property (strong, nonatomic) IBOutlet UITextField *message;
@@ -20,6 +21,9 @@
     if ([[notification name] isEqualToString:@"tcpReceivedMessage"]) {
         self.messageLogTextView.attributedText = self.tcpConnection.messageLog;
     } else if ([[notification name] isEqualToString:@"tcpError"]){
+        NSArray *viewControllers = self.navigationController.viewControllers;
+        MainViewController *mainViewController = (MainViewController *)[viewControllers objectAtIndex:0];
+        [mainViewController.gyroscopeData stopGyroscopteDate];
         [self performSegueWithIdentifier:@"unwindToCouldNotConnectFromSendMessageVC" sender:self];
     }
 }

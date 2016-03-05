@@ -27,8 +27,9 @@
     } else if ([[notification name] isEqualToString:@"tcpError"]){
         [self performSegueWithIdentifier:@"unwindToCouldNotConnectFromMainVC" sender:self];
     } else if ([[notification name] isEqualToString:@"tcpReceivedGyro"]){
-        [self.gyroscopeData stopGyroscopteDate];
         [self.gyroscopeData startGyroscopeDateWithIntervall:[self.tcpConnection.messageReceived doubleValue]];
+    } else if ([[notification name] isEqualToString:@"tcpReceivedGyroStop"]){
+        [self.gyroscopeData stopGyroscopteDate];
     } else if ([[notification name] isEqualToString:@"tcpReceivedButtonsOn"]){
         [self.leftButton setHidden:NO];
     } else if ([[notification name] isEqualToString:@"tcpReceivedButtonsOff"]){
@@ -87,6 +88,8 @@
     } else if ([[segue identifier] isEqualToString:@"popUpMessage"]){
         PopUpMessageViewController* popUpMessageViewController = [segue destinationViewController];
         popUpMessageViewController.tcpConnection = self.tcpConnection;
+    } else if ([[segue identifier] isEqualToString:@"unwindToCouldNotConnectFromMainVC"]){
+        [self.gyroscopeData stopGyroscopteDate];
     }
 }
 
@@ -111,15 +114,18 @@
     if (self.gyroscopeData.sensitivity < 0.6) {
         self.gyroscopeData.sensitivity = 1.0;
     }
-    [self.gyroscopeData startGyroscopeDateWithIntervall:180.0/60.0];
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(receivedNotification:) name:@"tcpReceivedGyro" object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(receivedNotification:) name:@"tcpReceivedGyroStop" object:nil];
     
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(receivedNotification:) name:@"tcpReceivedButtonsOn" object:nil];
     
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(receivedNotification:) name:@"tcpReceivedButtonsOff" object:nil];
+    
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(receivedNotification:)
                                                  name:@"tcpReceivedModes"
@@ -135,6 +141,7 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated{
+    [self.tcpConnection sendMessage:@"MainView#$#Entered"];
     // register for tcpConnection notifications
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(receivedNotification:)
@@ -148,7 +155,7 @@
 }
 
 - (void)viewWillDisappear:(BOOL)animated{
-    //[self.gyroscopeData stopGyroscopteDate];
+    [self.tcpConnection sendMessage:@"MainView#$#Exited"];
     
     // unregister for tcpConnection notifications
     [[NSNotificationCenter defaultCenter] removeObserver:self
@@ -173,6 +180,11 @@
     [[NSNotificationCenter defaultCenter] removeObserver:self
                                                     name:@"tcpReceivedGyro"
                                                   object:nil];
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                    name:@"tcpReceivedGyroStop"
+                                                  object:nil];
+    
     [[NSNotificationCenter defaultCenter] removeObserver:self
                                                     name:@"tcpReceivedModes"
                                                   object:nil];

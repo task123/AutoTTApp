@@ -66,7 +66,7 @@
     if ([[segue identifier] isEqualToString:@"Connect"])
     {
         UINavigationController* mainNavigationController = [segue destinationViewController];
-        MainViewController *mainViewController = mainNavigationController.topViewController;
+        MainViewController* mainViewController = mainNavigationController.topViewController;
         mainViewController.tcpConnection = self.tcpConnection;
     }else if([[segue identifier] isEqualToString:@"CouldNotConnect"]){
         CouldNotConnectViewController* couldNotConnectViewController = [segue destinationViewController];

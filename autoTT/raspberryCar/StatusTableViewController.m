@@ -8,6 +8,7 @@
 
 #import "StatusTableViewController.h"
 #import "PopUpMessageViewController.h"
+#import "MainViewController.h"
 
 @interface StatusTableViewController ()
 
@@ -22,6 +23,9 @@
     if ([[notification name] isEqualToString:@"tcpReceivedMessage"]) {
         [self performSegueWithIdentifier:@"popUpMessage" sender:self];
     } else if ([[notification name] isEqualToString:@"tcpError"]){
+        NSArray *viewControllers = self.navigationController.viewControllers;
+        MainViewController *mainViewController = (MainViewController *)[viewControllers objectAtIndex:0];
+        [mainViewController.gyroscopeData stopGyroscopteDate];
         [self performSegueWithIdentifier:@"unwindToCouldNotConnectFromStatusVC" sender:self];
     } else if ([[notification name] isEqualToString:@"tcpReceivedStatus"]){
         self.status = [self.tcpConnection.messageReceived componentsSeparatedByString:@";"];

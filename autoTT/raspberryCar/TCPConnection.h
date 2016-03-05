@@ -14,6 +14,9 @@
 // @"tcpConnected", @"tcpError", @"tcpEnded" and @"tcpReceived'X'"
 // where 'X' is the type of message specified in the received message as @"'X'#$#theActualMessage"
 // if the received message does not contain '#$#' then 'X' is empty
+// anything after '%^%' in a message is removed
+//
+// '%^%' is added to all sendt messages
 
 @property (strong, nonatomic) NSString* errorMessage;
 @property (strong, nonatomic) NSAttributedString* messageLog;

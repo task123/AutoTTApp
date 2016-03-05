@@ -19,6 +19,9 @@
 
 - (void)receivedNotification:(NSNotification *) notification {
     if ([[notification name] isEqualToString:@"tcpError"]){
+        NSArray *viewControllers = self.navigationController.viewControllers;
+        MainViewController *mainViewController = (MainViewController *)[viewControllers objectAtIndex:0];
+        [mainViewController.gyroscopeData stopGyroscopteDate];
         [self performSegueWithIdentifier:@"unwindToCouldNotConnectFromPopUpMessageVC" sender:self];
     }
 }

@@ -7,6 +7,7 @@
 //
 
 #import "ShutDownViewController.h"
+#import "MainViewController.h"
 
 @implementation ShutDownViewController
 - (IBAction)ShutDown:(id)sender {
@@ -16,6 +17,9 @@
 
 - (void)receivedNotification:(NSNotification *) notification {
     if ([[notification name] isEqualToString:@"tcpError"]) {
+        NSArray *viewControllers = self.navigationController.viewControllers;
+        MainViewController *mainViewController = (MainViewController *)[viewControllers objectAtIndex:0];
+        [mainViewController.gyroscopeData stopGyroscopteDate];
         [self performSegueWithIdentifier:@"unwindToCouldNotConnectFromShutDownVC" sender:self];
     }
 }

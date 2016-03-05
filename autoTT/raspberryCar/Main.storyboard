@@ -1026,7 +1026,7 @@
                     <connections>
                         <outlet property="statusTable" destination="q8u-Le-a0h" id="esD-bi-imx"/>
                         <segue destination="x4c-oi-fFU" kind="presentation" identifier="popUpMessage" modalPresentationStyle="overCurrentContext" modalTransitionStyle="crossDissolve" id="9YR-l2-eMl"/>
-                        <segue destination="tvM-Ev-tLX" kind="unwind" identifier="unwindToConnectionFromStatusVC" unwindAction="unwindToCouldNotConnect:" id="hDj-wY-Un6"/>
+                        <segue destination="tvM-Ev-tLX" kind="unwind" identifier="unwindToCouldNotConnectFromStatusVC" unwindAction="unwindToCouldNotConnect:" id="hDj-wY-Un6"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aIe-Cv-eKZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1175,6 +1175,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="qlv-TF-kXo"/>
+        <segue reference="9YR-l2-eMl"/>
     </inferredMetricsTieBreakers>
 </document>

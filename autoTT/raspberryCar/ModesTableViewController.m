@@ -23,6 +23,7 @@
     if ([[notification name] isEqualToString:@"tcpReceivedMessage"]) {
         [self performSegueWithIdentifier:@"popUpMessage" sender:self];
     } else if ([[notification name] isEqualToString:@"tcpError"]){
+        [self.mainViewController.gyroscopeData stopGyroscopteDate];
         [self performSegueWithIdentifier:@"unwindToCouldNotConnectFromModesVC" sender:self];
     }
 }

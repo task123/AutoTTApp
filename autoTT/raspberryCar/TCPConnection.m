@@ -50,6 +50,7 @@ Port{
 }
 
 - (void)sendMessage:(NSString*)message{
+    message = [message stringByAppendingString:@"%^%"];
     NSData *data = [[NSData alloc] initWithData:[[message stringByAppendingString:@"\r\n"] dataUsingEncoding:NSASCIIStringEncoding]];
     if (self.outputStream.hasSpaceAvailable){
         [self.outputStream write:[data bytes] maxLength:[data length]];
@@ -87,10 +88,17 @@ Port{
     NSRange rangeOfType = [message rangeOfString:@"#$#"];
     if (rangeOfType.location != NSNotFound) {
         typeOfMessage = [message substringToIndex:rangeOfType.location];
-        self.messageReceived = [message substringFromIndex:rangeOfType.location + 3];
+        message = [message substringFromIndex:rangeOfType.location + 3];
+    } else {
+        message = message;
+    }
+    NSRange rangeOfEnd = [message rangeOfString:@"%^%\r\n"];
+    if (rangeOfEnd.location != NSNotFound) {
+        self.messageReceived = [message substringToIndex:rangeOfEnd.location];
     } else {
         self.messageReceived = message;
     }
+    
     
     if ([typeOfMessage isEqualToString:self.typeRestriction] || [self.typeRestriction  isEqual: @""]) {
         NSDateFormatter *formatter;

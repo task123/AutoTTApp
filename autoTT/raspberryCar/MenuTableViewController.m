@@ -23,6 +23,7 @@
 @property (strong, nonatomic) IBOutlet UISwitch *videoStreamSwitchOutlet;
 @property (strong, nonatomic) IBOutlet UISegmentedControl *videoQualityOutlet;
 @property CMMotionManager* motionManager;
+@property NSTimer* nsTimer;
 @property (strong, nonatomic) IBOutlet UISlider *sensitivitySliderOutlet;
 
 @end
@@ -33,6 +34,7 @@
     if ([[notification name] isEqualToString:@"tcpReceivedMessage"]) {
         [self performSegueWithIdentifier:@"popUpMessage" sender:self];
     } else if ([[notification name] isEqualToString:@"tcpError"]){
+        [self.mainViewController.gyroscopeData stopGyroscopteDate];
         [self performSegueWithIdentifier:@"unwindToCouldNotConnectFromMenuVC" sender:self];
     }
 }
@@ -77,7 +79,7 @@
     if (indexPath.row == 6)
     {
         self.motionManager = [[CMMotionManager alloc] init];
-        [NSTimer scheduledTimerWithTimeInterval:0.1 target:self selector:@selector(getGyroData) userInfo:nil repeats:NO];
+        self.nsTimer = [NSTimer scheduledTimerWithTimeInterval:0.1 target:self selector:@selector(getGyroData) userInfo:nil repeats:NO];
         self.motionManager.deviceMotionUpdateInterval = 0.0001;
         [self.motionManager startDeviceMotionUpdatesUsingReferenceFrame:CMAttitudeReferenceFrameXArbitraryCorrectedZVertical];
     } else if (indexPath.row == 7){
@@ -92,8 +94,16 @@
     self.mainViewController.gyroscopeData.rollOffset = attitude.roll;
     self.mainViewController.gyroscopeData.pitchOffset = attitude.pitch;
     self.mainViewController.gyroscopeData.yawOffset = attitude.yaw;
-    [self.motionManager stopDeviceMotionUpdates];
-    self.motionManager = nil;
+    if(self.motionManager != nil){
+        [self.motionManager stopDeviceMotionUpdates];
+        [self.motionManager stopGyroUpdates];
+        if (self.nsTimer) {
+            [self.nsTimer invalidate];
+            self.nsTimer = nil;
+        }
+        self.motionManager = nil;
+    }
+
 }
 
 - (IBAction)sensitivitySliter:(id)sender {
@@ -121,6 +131,10 @@
     } else if ([[segue identifier] isEqualToString:@"SetStreamSource"]){
         SetStreamSourceViewController* setStreamSourceViewController = [segue destinationViewController];
         setStreamSourceViewController.mainViewController = self.mainViewController;
+    } else if ([[segue identifier] isEqualToString:@"unwindToCouldNotConnectFromMenuVC"]){
+        [self.mainViewController.gyroscopeData stopGyroscopteDate];
+    } else if ([[segue identifier] isEqualToString:@"unwindToConnectionFromMenuVC"]){
+        [self.mainViewController.gyroscopeData stopGyroscopteDate];
     }
 }
 
