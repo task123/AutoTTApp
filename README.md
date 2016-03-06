@@ -24,6 +24,7 @@ This app is not uploaded to the App Store, but anyone is free to download the pr
 * It has two transparrent buttons on the left and right side of the main view
   * These can be turn on and off
   * They give information of then the buttons are pressed and released
+* Can send message at a specifed interval to check the connection with the device you are trying to control
 
 ## How to communicate with it
 The app communicates over a tcp connection with text commands. (In addition to and seperate from the video stream (or webpage) it can receive over http). The general structure of these messages/commands is as follows; they start with the type of message followed by "#$#", then the message (or data) before it finishes with "%^%\r\n". Example: "Gyro#$#0.001238;1.234522;-2.209182%^%" One does not have to implement all this commands, only handle that they are sendt.
@@ -46,15 +47,18 @@ The app communicates over a tcp connection with text commands. (In addition to a
 * RightButtonTouchDown#$#%^%\r\n
 * LeftButtonTouchUp#$#%^%\r\n
 * RightButtonTouchUp#$#%^%\r\n
+* ConnectionTest#$#%^%\r\n
 
 ### Commands sendt to the app
-* Gyro#$#"number seconds between each time gyroscopic data is sendt"%^%\r\n
+* Gyro#$#"number of seconds between each time gyroscopic data is sendt"%^%\r\n
 * Message#$#"the message you wish to send"%^%\r\n
 * Modes#$#"list of modes seperated with semicolon, ';'"%^%\r\n
 * InfoModes#$#"list seperated with semicolon, ';', giving extra information about the modes"%^%\r\n
 * Status#$#"list seperated with semicolon, ';', giving infomation about the status of the device you wish to control (temp., battery percentage, etc.)"%^%\r\n
 * ButtonsOn#$#%^%\r\n
 * ButtonsOff#$#%^%\r\n
+* ConnectionTest#$#"number of seconds between each time the connection test message is sendt"%^%\r\n
+* ConnectionTestStop#$#%^%\r\n
 
 ## Potential problems
 * Not a problem for most projects, but it sometimes happens that some messages are lagging a little bit before several messages arrive at once. Did not present a problem in our project. The cause of this is unknown, and as it is only tested with the set-up form our project, the problem could potentially lie in our implementation of the python server it talked to.
