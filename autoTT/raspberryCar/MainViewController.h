@@ -27,4 +27,6 @@
 
 - (void)stopVideoStream;
 
+- (void)stopGyroAndRemoveObservers;
+
 @end

@@ -16,6 +16,7 @@
 @property (strong, nonatomic) IBOutlet UIButton *leftButton;
 @property (strong, nonatomic) IBOutlet UIButton *rightButton;
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *stopButtonOutlet;
+@property (strong, nonatomic) NSTimer* connectionTestTimer;
 
 @end
 
@@ -32,12 +33,23 @@
         [self.gyroscopeData stopGyroscopteDate];
     } else if ([[notification name] isEqualToString:@"tcpReceivedButtonsOn"]){
         [self.leftButton setHidden:NO];
+        [self.rightButton setHidden:NO];
     } else if ([[notification name] isEqualToString:@"tcpReceivedButtonsOff"]){
         [self.leftButton setHidden:YES];
+        [self.rightButton setHidden:YES];
     } else if ([[notification name] isEqualToString:@"tcpReceivedModes"]){
         self.modesArray = [self.tcpConnection.messageReceived componentsSeparatedByString:@";"];
     } else if ([[notification name] isEqualToString:@"tcpReceivedInfoModes"]){
         self.modesInfoArray = [self.tcpConnection.messageReceived componentsSeparatedByString:@";"];
+    } else if ([[notification name] isEqualToString:@"tcpReceivedConnectionTest"]){
+        if (!self.connectionTestTimer) {
+            [self.connectionTestTimer invalidate];
+            self.connectionTestTimer = nil;
+        }
+        self.connectionTestTimer = [NSTimer scheduledTimerWithTimeInterval:[self.tcpConnection.messageReceived doubleValue] target:self selector:@selector(connectionTest) userInfo:nil repeats:YES];
+    } else if ([[notification name] isEqualToString:@"tcpReceivedConnectionTestStop"]){
+        [self.connectionTestTimer invalidate];
+        self.connectionTestTimer = nil;
     }
 }
 
@@ -79,6 +91,10 @@
     [self.videoStreamWebView setHidden:YES];
 }
 
+- (void)connectionTest{
+    [self.tcpConnection sendMessage:@"ConnectionTest#$#"];
+}
+
 -(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     if ([[segue identifier] isEqualToString:@"Menu/Settings"])
     {
@@ -89,8 +105,49 @@
         PopUpMessageViewController* popUpMessageViewController = [segue destinationViewController];
         popUpMessageViewController.tcpConnection = self.tcpConnection;
     } else if ([[segue identifier] isEqualToString:@"unwindToCouldNotConnectFromMainVC"]){
-        [self.gyroscopeData stopGyroscopteDate];
+        [self stopGyroAndRemoveObservers];
     }
+}
+
+- (void)stopGyroAndRemoveObservers{
+    [self.gyroscopeData stopGyroscopteDate];
+    
+    if (!self.connectionTestTimer) {
+        [self.connectionTestTimer invalidate];
+        self.connectionTestTimer = nil;
+    }
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                    name:@"tcpReceivedButtonsOn"
+                                                  object:nil];
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                    name:@"tcpReceivedButtonsOff"
+                                                  object:nil];
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                    name:@"tcpReceivedGyro"
+                                                  object:nil];
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                    name:@"tcpReceivedGyroStop"
+                                                  object:nil];
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                    name:@"tcpReceivedModes"
+                                                  object:nil];
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                    name:@"tcpReceivedInfoModes"
+                                                  object:nil];
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                    name:@"tcpReceivedConnectionTest"
+                                                  object:nil];
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                    name:@"tcpReceivedConnectionTestStop"
+                                                  object:nil];
 }
 
 - (void)viewDidLoad {
@@ -106,8 +163,7 @@
     [self.leftButton setHidden:YES];
     [self.rightButton setHidden:YES];
 
-    GyroscopeData* gyroscopeData = [[GyroscopeData alloc] init];
-    self.gyroscopeData = gyroscopeData;
+    self.gyroscopeData = [[GyroscopeData alloc] init];
     self.gyroscopeData.delegate = self;
     NSNumber *sensitivity = [[NSUserDefaults standardUserDefaults] objectForKey:@"sensitivityValue"];
     self.gyroscopeData.sensitivity = [sensitivity floatValue];
@@ -134,6 +190,16 @@
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(receivedNotification:)
                                                  name:@"tcpReceivedInfoModes"
+                                               object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(receivedNotification:)
+                                                 name:@"tcpReceivedConnectionTest"
+                                               object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(receivedNotification:)
+                                                 name:@"tcpReceivedConnectionTestStop"
                                                object:nil];
     
     [self.tcpConnection sendMessage:@"Modes#$#"];
@@ -169,29 +235,6 @@
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    [self.gyroscopeData stopGyroscopteDate];
-    [[NSNotificationCenter defaultCenter] removeObserver:self
-                                                    name:@"tcpReceivedButtonsOn"
-                                                  object:nil];
-    [[NSNotificationCenter defaultCenter] removeObserver:self
-                                                    name:@"tcpReceivedButtonsOff"
-                                                  object:nil];
-    
-    [[NSNotificationCenter defaultCenter] removeObserver:self
-                                                    name:@"tcpReceivedGyro"
-                                                  object:nil];
-    
-    [[NSNotificationCenter defaultCenter] removeObserver:self
-                                                    name:@"tcpReceivedGyroStop"
-                                                  object:nil];
-    
-    [[NSNotificationCenter defaultCenter] removeObserver:self
-                                                    name:@"tcpReceivedModes"
-                                                  object:nil];
-    
-    [[NSNotificationCenter defaultCenter] removeObserver:self
-                                                    name:@"tcpReceivedInfoModes"
-                                                  object:nil];
 }
 
 @end

@@ -34,7 +34,7 @@
     if ([[notification name] isEqualToString:@"tcpReceivedMessage"]) {
         [self performSegueWithIdentifier:@"popUpMessage" sender:self];
     } else if ([[notification name] isEqualToString:@"tcpError"]){
-        [self.mainViewController.gyroscopeData stopGyroscopteDate];
+        [self.mainViewController stopGyroAndRemoveObservers];
         [self performSegueWithIdentifier:@"unwindToCouldNotConnectFromMenuVC" sender:self];
     }
 }
@@ -91,17 +91,24 @@
 
 - (void)getGyroData{
     CMAttitude* attitude = self.motionManager.deviceMotion.attitude;
-    self.mainViewController.gyroscopeData.rollOffset = attitude.roll;
-    self.mainViewController.gyroscopeData.pitchOffset = attitude.pitch;
-    self.mainViewController.gyroscopeData.yawOffset = attitude.yaw;
-    if(self.motionManager != nil){
-        [self.motionManager stopDeviceMotionUpdates];
-        [self.motionManager stopGyroUpdates];
-        if (self.nsTimer) {
-            [self.nsTimer invalidate];
-            self.nsTimer = nil;
+    if ((attitude.roll == 0.0 && attitude.pitch == 0.0) && attitude.yaw == 0.0){
+        self.motionManager = [[CMMotionManager alloc] init];
+        self.nsTimer = [NSTimer scheduledTimerWithTimeInterval:0.1 target:self selector:@selector(getGyroData) userInfo:nil repeats:NO];
+        self.motionManager.deviceMotionUpdateInterval = 0.0001;
+        [self.motionManager startDeviceMotionUpdatesUsingReferenceFrame:CMAttitudeReferenceFrameXArbitraryCorrectedZVertical];
+    } else {
+        self.mainViewController.gyroscopeData.rollOffset = attitude.roll;
+        self.mainViewController.gyroscopeData.pitchOffset = attitude.pitch;
+        self.mainViewController.gyroscopeData.yawOffset = attitude.yaw;
+        if(self.motionManager != nil){
+            [self.motionManager stopDeviceMotionUpdates];
+            [self.motionManager stopGyroUpdates];
+            if (self.nsTimer) {
+                [self.nsTimer invalidate];
+                self.nsTimer = nil;
+            }
+            self.motionManager = nil;
         }
-        self.motionManager = nil;
     }
 
 }
@@ -132,9 +139,9 @@
         SetStreamSourceViewController* setStreamSourceViewController = [segue destinationViewController];
         setStreamSourceViewController.mainViewController = self.mainViewController;
     } else if ([[segue identifier] isEqualToString:@"unwindToCouldNotConnectFromMenuVC"]){
-        [self.mainViewController.gyroscopeData stopGyroscopteDate];
+        [self.mainViewController stopGyroAndRemoveObservers];
     } else if ([[segue identifier] isEqualToString:@"unwindToConnectionFromMenuVC"]){
-        [self.mainViewController.gyroscopeData stopGyroscopteDate];
+        [self.mainViewController stopGyroAndRemoveObservers];
     }
 }
 

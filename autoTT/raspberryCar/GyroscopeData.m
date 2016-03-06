@@ -19,8 +19,8 @@
 
 -(void)startGyroscopeDateWithIntervall:(double)seconds
 {
-    self.nsTimer = [NSTimer scheduledTimerWithTimeInterval:seconds target:self selector:@selector(updateDeviceMotion) userInfo:nil repeats:YES];
     [self stopGyroscopteDate];
+    self.nsTimer = [NSTimer scheduledTimerWithTimeInterval:seconds target:self selector:@selector(updateDeviceMotion) userInfo:nil repeats:YES];
     self.motionManager = [[CMMotionManager alloc] init];
     self.motionManager.deviceMotionUpdateInterval = seconds;
     [self.motionManager startDeviceMotionUpdatesUsingReferenceFrame:CMAttitudeReferenceFrameXArbitraryCorrectedZVertical];
