@@ -24,9 +24,8 @@
 @property id <gyroscopeDataDelegate> delegate;
 
 @property double sensitivity;
-@property double rollOffset;
-@property double pitchOffset;
-@property double yawOffset;
+@property BOOL offset;
+@property (strong, nonatomic) CMAttitude* offsetAttitude;
 
 - (void)startGyroscopeDateWithIntervall:(double)seconds;
 

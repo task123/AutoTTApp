@@ -50,6 +50,7 @@ Port{
 }
 
 - (void)sendMessage:(NSString*)message{
+    
     message = [message stringByAppendingString:@"%^%"];
     NSData *data = [[NSData alloc] initWithData:[[message stringByAppendingString:@"\r\n"] dataUsingEncoding:NSASCIIStringEncoding]];
     if (self.outputStream.hasSpaceAvailable){

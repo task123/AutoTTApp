@@ -36,10 +36,12 @@
     }
     
     CMAttitude *attitude = deviceMotion.attitude;
-
-    [self.delegate updateOfGyroscopeDateWithRoll:self.sensitivity * (attitude.roll - self.rollOffset)
-                                           Pitch:self.sensitivity * (attitude.pitch - self.pitchOffset)
-                                             Yaw:self.sensitivity * (attitude.yaw - self.yawOffset)];
+    if (self.offset){
+        [attitude multiplyByInverseOfAttitude:self.offsetAttitude];
+    }
+    [self.delegate updateOfGyroscopeDateWithRoll:self.sensitivity * attitude.roll
+                                           Pitch:self.sensitivity * attitude.pitch
+                                             Yaw:self.sensitivity * attitude.yaw];
 }
 
 - (void)stopGyroscopteDate{

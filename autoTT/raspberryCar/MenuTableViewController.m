@@ -83,9 +83,7 @@
         self.motionManager.deviceMotionUpdateInterval = 0.0001;
         [self.motionManager startDeviceMotionUpdatesUsingReferenceFrame:CMAttitudeReferenceFrameXArbitraryCorrectedZVertical];
     } else if (indexPath.row == 7){
-        self.mainViewController.gyroscopeData.rollOffset = 0.0;
-        self.mainViewController.gyroscopeData.pitchOffset = 0.0;
-        self.mainViewController.gyroscopeData.yawOffset = 0.0;
+        self.mainViewController.gyroscopeData.offset = NO;
     }
 }
 
@@ -97,9 +95,8 @@
         self.motionManager.deviceMotionUpdateInterval = 0.0001;
         [self.motionManager startDeviceMotionUpdatesUsingReferenceFrame:CMAttitudeReferenceFrameXArbitraryCorrectedZVertical];
     } else {
-        self.mainViewController.gyroscopeData.rollOffset = attitude.roll;
-        self.mainViewController.gyroscopeData.pitchOffset = attitude.pitch;
-        self.mainViewController.gyroscopeData.yawOffset = attitude.yaw;
+        self.mainViewController.gyroscopeData.offsetAttitude = attitude;
+        self.mainViewController.gyroscopeData.offset = YES;
         if(self.motionManager != nil){
             [self.motionManager stopDeviceMotionUpdates];
             [self.motionManager stopGyroUpdates];

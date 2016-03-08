@@ -165,6 +165,7 @@
 
     self.gyroscopeData = [[GyroscopeData alloc] init];
     self.gyroscopeData.delegate = self;
+    self.gyroscopeData.offset = NO;
     NSNumber *sensitivity = [[NSUserDefaults standardUserDefaults] objectForKey:@"sensitivityValue"];
     self.gyroscopeData.sensitivity = [sensitivity floatValue];
     if (self.gyroscopeData.sensitivity < 0.6) {
