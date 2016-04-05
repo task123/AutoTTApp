@@ -35,6 +35,7 @@ The app communicates over a tcp connection with text commands. (In addition to a
 * MainView#$#entered%^%\r\n
 * MainView#$#exited%^%\r\n
 * Modes#$#%^%\r\n
+* ChosenMode#$#"number of the mode selected with zero-based numbering"%^%\r\n
 * InfoModes#$#%^%\r\n
 * Status#$#%^%\r\n
 * Stop#$#%^%\r\n
