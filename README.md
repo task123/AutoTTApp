@@ -42,7 +42,7 @@ The app communicates over a tcp connection with text commands. (In addition to a
 * Continue#$#%^%\r\n
 * Disconnect#$#%^%\r\n
 * ShutDown#$#%^%\r\n
-* VideoStream#$#"On or off"%^%\r\n
+* VideoStream#$#"On or 0ff"%^%\r\n
 * VideoQuality#$#"High, Medium or Low"%^%\r\n
 * LeftButtonTouchDown#$#%^%\r\n
 * RightButtonTouchDown#$#%^%\r\n
