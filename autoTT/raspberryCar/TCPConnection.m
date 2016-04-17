@@ -50,7 +50,7 @@ Port{
 }
 
 - (void)sendMessage:(NSString*)message{
-    
+    //NSLog(message);
     message = [message stringByAppendingString:@"%^%"];
     NSData *data = [[NSData alloc] initWithData:[[message stringByAppendingString:@"\r\n"] dataUsingEncoding:NSASCIIStringEncoding]];
     if (self.outputStream.hasSpaceAvailable){
@@ -143,7 +143,7 @@ Port{
                         NSString *message = [[NSString alloc] initWithBytes:buffer length:len encoding:NSASCIIStringEncoding];
                         
                         if (nil != message) {
-                            NSLog(@"server said: %@", message);
+                            //NSLog(@"server said: %@", message);
                             [self receivedMessage:message];
                         }
                     }

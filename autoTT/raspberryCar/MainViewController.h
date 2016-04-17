@@ -16,6 +16,8 @@
 
 @property (strong, nonatomic) GyroscopeData* gyroscopeData;
 
+@property (strong, nonatomic) NSTimer* connectionTestTimer;
+
 @property (strong, nonatomic) NSString* streamSourceURL;
 @property BOOL videoStreamOn;
 @property NSInteger videoQuality;

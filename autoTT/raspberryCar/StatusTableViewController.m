@@ -25,7 +25,11 @@
     } else if ([[notification name] isEqualToString:@"tcpError"]){
         NSArray *viewControllers = self.navigationController.viewControllers;
         MainViewController *mainViewController = (MainViewController *)[viewControllers objectAtIndex:0];
-        [mainViewController.gyroscopeData stopGyroscopteDate];
+        [mainViewController.gyroscopeData stopGyroscopteData];
+        if (mainViewController.connectionTestTimer) {
+            [mainViewController.connectionTestTimer invalidate];
+            mainViewController.connectionTestTimer = nil;
+        }
         [self performSegueWithIdentifier:@"unwindToCouldNotConnectFromStatusVC" sender:self];
     } else if ([[notification name] isEqualToString:@"tcpReceivedStatus"]){
         self.status = [self.tcpConnection.messageReceived componentsSeparatedByString:@";"];

@@ -17,9 +17,9 @@
 
 @implementation GyroscopeData
 
--(void)startGyroscopeDateWithIntervall:(double)seconds
+-(void)startGyroscopeDataWithIntervall:(double)seconds
 {
-    [self stopGyroscopteDate];
+    [self stopGyroscopteData];
     self.nsTimer = [NSTimer scheduledTimerWithTimeInterval:seconds target:self selector:@selector(updateDeviceMotion) userInfo:nil repeats:YES];
     self.motionManager = [[CMMotionManager alloc] init];
     self.motionManager.deviceMotionUpdateInterval = seconds;
@@ -39,12 +39,12 @@
     if (self.offset){
         [attitude multiplyByInverseOfAttitude:self.offsetAttitude];
     }
-    [self.delegate updateOfGyroscopeDateWithRoll:self.sensitivity * attitude.roll
+    [self.delegate updateOfGyroscopeDataWithRoll:self.sensitivity * attitude.roll
                                            Pitch:self.sensitivity * attitude.pitch
                                              Yaw:self.sensitivity * attitude.yaw];
 }
 
-- (void)stopGyroscopteDate{
+- (void)stopGyroscopteData{
     if(self.motionManager != nil){
         
         [self.motionManager stopDeviceMotionUpdates];

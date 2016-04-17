@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "240FC0722AF6B29C6CABA9216335461DD758CFF4",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "0EECA27BB1835D49CFF218E2D79DBAA43E1BA5D7" : 0,
+    "240FC0722AF6B29C6CABA9216335461DD758CFF4" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "23779E8E-CDE9-4DAF-A378-FCE83F2F64DC",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "0EECA27BB1835D49CFF218E2D79DBAA43E1BA5D7" : "..\/..\/..\/studier",
+    "240FC0722AF6B29C6CABA9216335461DD758CFF4" : "autoTTApp\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "AutoTT",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "autoTT\/AutoTT.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/task123\/datasciencecoursera.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "0EECA27BB1835D49CFF218E2D79DBAA43E1BA5D7"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/task123\/AutoTTApp.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "240FC0722AF6B29C6CABA9216335461DD758CFF4"
+    }
+  ]
+}

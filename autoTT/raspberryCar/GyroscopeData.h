@@ -11,7 +11,7 @@
 
 @protocol gyroscopeDataDelegate
 
-- (void)updateOfGyroscopeDateWithRoll:(double)roll Pitch: (double)pitch Yaw: (double)yaw;
+- (void)updateOfGyroscopeDataWithRoll:(double)roll Pitch: (double)pitch Yaw: (double)yaw;
 
 @optional
 
@@ -27,8 +27,8 @@
 @property BOOL offset;
 @property (strong, nonatomic) CMAttitude* offsetAttitude;
 
-- (void)startGyroscopeDateWithIntervall:(double)seconds;
+- (void)startGyroscopeDataWithIntervall:(double)seconds;
 
-- (void)stopGyroscopteDate;
+- (void)stopGyroscopteData;
 
 @end

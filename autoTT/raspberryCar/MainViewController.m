@@ -16,7 +16,6 @@
 @property (strong, nonatomic) IBOutlet UIButton *leftButton;
 @property (strong, nonatomic) IBOutlet UIButton *rightButton;
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *stopButtonOutlet;
-@property (strong, nonatomic) NSTimer* connectionTestTimer;
 
 @end
 
@@ -28,9 +27,9 @@
     } else if ([[notification name] isEqualToString:@"tcpError"]){
         [self performSegueWithIdentifier:@"unwindToCouldNotConnectFromMainVC" sender:self];
     } else if ([[notification name] isEqualToString:@"tcpReceivedGyro"]){
-        [self.gyroscopeData startGyroscopeDateWithIntervall:[self.tcpConnection.messageReceived doubleValue]];
+        [self.gyroscopeData startGyroscopeDataWithIntervall:[self.tcpConnection.messageReceived doubleValue]];
     } else if ([[notification name] isEqualToString:@"tcpReceivedGyroStop"]){
-        [self.gyroscopeData stopGyroscopteDate];
+        [self.gyroscopeData stopGyroscopteData];
     } else if ([[notification name] isEqualToString:@"tcpReceivedButtonsOn"]){
         [self.leftButton setHidden:NO];
         [self.rightButton setHidden:NO];
@@ -42,7 +41,7 @@
     } else if ([[notification name] isEqualToString:@"tcpReceivedInfoModes"]){
         self.modesInfoArray = [self.tcpConnection.messageReceived componentsSeparatedByString:@";"];
     } else if ([[notification name] isEqualToString:@"tcpReceivedConnectionTest"]){
-        if (!self.connectionTestTimer) {
+        if (self.connectionTestTimer) {
             [self.connectionTestTimer invalidate];
             self.connectionTestTimer = nil;
         }
@@ -53,7 +52,7 @@
     }
 }
 
-- (void)updateOfGyroscopeDateWithRoll:(double)roll Pitch:(double)pitch Yaw:(double)yaw{
+- (void)updateOfGyroscopeDataWithRoll:(double)roll Pitch:(double)pitch Yaw:(double)yaw{
     [self.tcpConnection sendMessage:[NSString stringWithFormat: @"Gyro#$# %f; %f; %f", roll, pitch, yaw]];
 }
 
@@ -106,11 +105,15 @@
         popUpMessageViewController.tcpConnection = self.tcpConnection;
     } else if ([[segue identifier] isEqualToString:@"unwindToCouldNotConnectFromMainVC"]){
         [self stopGyroAndRemoveObservers];
+        if (self.connectionTestTimer) {
+            [self.connectionTestTimer invalidate];
+            self.connectionTestTimer = nil;
+        }
     }
 }
 
 - (void)stopGyroAndRemoveObservers{
-    [self.gyroscopeData stopGyroscopteDate];
+    [self.gyroscopeData stopGyroscopteData];
     
     if (!self.connectionTestTimer) {
         [self.connectionTestTimer invalidate];
@@ -156,7 +159,7 @@
     self.backgroundImage.image = raspberyyPiImage;
     [self.videoStreamWebView setHidden:YES];
     NSString *VideoPort = [NSString stringWithFormat:@"%ld",[[[NSUserDefaults standardUserDefaults] stringForKey:@"Port"] integerValue] + 1];
-    self.streamSourceURL = [NSString stringWithFormat:@"https://%@:%@",[[NSUserDefaults standardUserDefaults] stringForKey:@"IPAddress"],VideoPort];
+    self.streamSourceURL = [NSString stringWithFormat:@"http://%@:%@",[[NSUserDefaults standardUserDefaults] stringForKey:@"IPAddress"],VideoPort];
     self.videoStreamOn = NO;
     self.videoQuality = 2;
     

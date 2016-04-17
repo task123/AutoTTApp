@@ -34,7 +34,6 @@
     if ([[notification name] isEqualToString:@"tcpReceivedMessage"]) {
         [self performSegueWithIdentifier:@"popUpMessage" sender:self];
     } else if ([[notification name] isEqualToString:@"tcpError"]){
-        [self.mainViewController stopGyroAndRemoveObservers];
         [self performSegueWithIdentifier:@"unwindToCouldNotConnectFromMenuVC" sender:self];
     }
 }
@@ -137,8 +136,16 @@
         setStreamSourceViewController.mainViewController = self.mainViewController;
     } else if ([[segue identifier] isEqualToString:@"unwindToCouldNotConnectFromMenuVC"]){
         [self.mainViewController stopGyroAndRemoveObservers];
+        if (self.mainViewController.connectionTestTimer) {
+            [self.mainViewController.connectionTestTimer invalidate];
+            self.mainViewController.connectionTestTimer = nil;
+        }
     } else if ([[segue identifier] isEqualToString:@"unwindToConnectionFromMenuVC"]){
         [self.mainViewController stopGyroAndRemoveObservers];
+        if (self.mainViewController.connectionTestTimer) {
+            [self.mainViewController.connectionTestTimer invalidate];
+            self.mainViewController.connectionTestTimer = nil;
+        }
     }
 }
 

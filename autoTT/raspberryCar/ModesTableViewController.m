@@ -12,7 +12,7 @@
 
 @interface ModesTableViewController ()
 
-@property (strong, nonatomic) NSArray* infoModes;
+//@property (strong, nonatomic) NSArray* infoModes;
 @property NSInteger chosenInfo;
 
 @end
@@ -24,6 +24,10 @@
         [self performSegueWithIdentifier:@"popUpMessage" sender:self];
     } else if ([[notification name] isEqualToString:@"tcpError"]){
         [self.mainViewController stopGyroAndRemoveObservers];
+        if (self.mainViewController.connectionTestTimer) {
+            [self.mainViewController.connectionTestTimer invalidate];
+            self.mainViewController.connectionTestTimer = nil;
+        }
         [self performSegueWithIdentifier:@"unwindToCouldNotConnectFromModesVC" sender:self];
     }
 }
@@ -100,6 +104,7 @@
 }
 
 - (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath{
+    self.chosenInfo = indexPath.row;
     [self performSegueWithIdentifier: @"infoModes" sender: [tableView cellForRowAtIndexPath: indexPath]];
 }
 

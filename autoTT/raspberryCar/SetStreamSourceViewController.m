@@ -22,6 +22,10 @@
         NSArray *viewControllers = self.navigationController.viewControllers;
         MainViewController *mainViewController = (MainViewController *)[viewControllers objectAtIndex:0];
         [mainViewController stopGyroAndRemoveObservers];
+        if (mainViewController.connectionTestTimer) {
+            [mainViewController.connectionTestTimer invalidate];
+            mainViewController.connectionTestTimer = nil;
+        }
         [self performSegueWithIdentifier:@"unwindToCouldNotConnectFromPopUpMessageVC" sender:self];
     }
 }
