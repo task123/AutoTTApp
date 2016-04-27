@@ -27,6 +27,10 @@
 		FE892E551C763327001B126A /* StatusTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FE892E541C763327001B126A /* StatusTableViewController.m */; };
 		FE892E5A1C7633BC001B126A /* TCPConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = FE892E591C7633BC001B126A /* TCPConnection.m */; };
 		FE892E761C77D347001B126A /* SendMessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FE892E751C77D347001B126A /* SendMessageViewController.m */; };
+		FECD4AF71CC3BD6100072ADD /* VoiceRecognition.m in Sources */ = {isa = PBXBuildFile; fileRef = FECD4AF61CC3BD6100072ADD /* VoiceRecognition.m */; };
+		FECD4AFF1CC3D2C000072ADD /* AcousticModelEnglish.bundle in Resources */ = {isa = PBXBuildFile; fileRef = FECD4AFC1CC3D2C000072ADD /* AcousticModelEnglish.bundle */; };
+		FECD4B001CC3D2C000072ADD /* OpenEars.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FECD4AFD1CC3D2C000072ADD /* OpenEars.framework */; };
+		FECD4B011CC3D2C000072ADD /* Slt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FECD4AFE1CC3D2C000072ADD /* Slt.framework */; };
 		FEEDD59D1C7DB6F800F24233 /* PopUpMessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FEEDD59C1C7DB6F800F24233 /* PopUpMessageViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -87,6 +91,11 @@
 		FE892E591C7633BC001B126A /* TCPConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCPConnection.m; sourceTree = "<group>"; };
 		FE892E751C77D347001B126A /* SendMessageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SendMessageViewController.m; sourceTree = "<group>"; };
 		FE892E771C77D42C001B126A /* SendMessageViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SendMessageViewController.h; sourceTree = "<group>"; };
+		FECD4AF51CC3BD6100072ADD /* VoiceRecognition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VoiceRecognition.h; sourceTree = "<group>"; };
+		FECD4AF61CC3BD6100072ADD /* VoiceRecognition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VoiceRecognition.m; sourceTree = "<group>"; };
+		FECD4AFC1CC3D2C000072ADD /* AcousticModelEnglish.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = AcousticModelEnglish.bundle; sourceTree = "<group>"; };
+		FECD4AFD1CC3D2C000072ADD /* OpenEars.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = OpenEars.framework; sourceTree = "<group>"; };
+		FECD4AFE1CC3D2C000072ADD /* Slt.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Slt.framework; sourceTree = "<group>"; };
 		FEEDD59B1C7DB6F800F24233 /* PopUpMessageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopUpMessageViewController.h; sourceTree = "<group>"; };
 		FEEDD59C1C7DB6F800F24233 /* PopUpMessageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopUpMessageViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -96,6 +105,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FECD4B011CC3D2C000072ADD /* Slt.framework in Frameworks */,
+				FECD4B001CC3D2C000072ADD /* OpenEars.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -123,6 +134,7 @@
 				FE842BBA1C72226F00AA882E /* autoTTTests */,
 				FE842BC51C72226F00AA882E /* autoTTUITests */,
 				FE842B9F1C72226F00AA882E /* Products */,
+				FECD4AFB1CC3D2C000072ADD /* Framework */,
 			);
 			sourceTree = "<group>";
 		};
@@ -158,6 +170,8 @@
 				FE3177F51C74D022005229E0 /* MainViewController.m */,
 				FE892E581C7633BC001B126A /* TCPConnection.h */,
 				FE892E591C7633BC001B126A /* TCPConnection.m */,
+				FECD4AF51CC3BD6100072ADD /* VoiceRecognition.h */,
+				FECD4AF61CC3BD6100072ADD /* VoiceRecognition.m */,
 				FE69C8071C7B0EF900A0650B /* CouldNotConnectViewController.h */,
 				FE69C8081C7B0EF900A0650B /* CouldNotConnectViewController.m */,
 				FE892E771C77D42C001B126A /* SendMessageViewController.h */,
@@ -204,6 +218,16 @@
 			);
 			name = autoTTUITests;
 			path = raspberryCarUITests;
+			sourceTree = "<group>";
+		};
+		FECD4AFB1CC3D2C000072ADD /* Framework */ = {
+			isa = PBXGroup;
+			children = (
+				FECD4AFC1CC3D2C000072ADD /* AcousticModelEnglish.bundle */,
+				FECD4AFD1CC3D2C000072ADD /* OpenEars.framework */,
+				FECD4AFE1CC3D2C000072ADD /* Slt.framework */,
+			);
+			path = Framework;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -313,6 +337,7 @@
 				FE6F75891C787CD000ECA7EC /* Main.storyboard in Resources */,
 				FE842BB11C72226F00AA882E /* LaunchScreen.storyboard in Resources */,
 				FE3FD0261C8501500054B216 /* assets.xcassets in Resources */,
+				FECD4AFF1CC3D2C000072ADD /* AcousticModelEnglish.bundle in Resources */,
 				FE3FD01E1C82F2600054B216 /* raspberryPiLogo.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -341,6 +366,7 @@
 				FE3FD0211C83287E0054B216 /* SetStreamSourceViewController.m in Sources */,
 				FE842BA91C72226F00AA882E /* ConnectionViewController.m in Sources */,
 				FE892E5A1C7633BC001B126A /* TCPConnection.m in Sources */,
+				FECD4AF71CC3BD6100072ADD /* VoiceRecognition.m in Sources */,
 				FE3FD0241C83CB1D0054B216 /* ModesInfoViewController.m in Sources */,
 				FE842BA61C72226F00AA882E /* AppDelegate.m in Sources */,
 				FE3177FC1C74D10A005229E0 /* ModesTableViewController.m in Sources */,
@@ -487,6 +513,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Framework",
+				);
 				INFOPLIST_FILE = raspberryCar/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -502,6 +532,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Framework",
+				);
 				INFOPLIST_FILE = raspberryCar/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

@@ -417,6 +417,9 @@
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="Qb4-g4-P5j">
+                                                    <rect key="frame" x="290" y="12" width="20" height="20"/>
+                                                </activityIndicatorView>
                                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="n1x-wO-Ps6">
                                                     <rect key="frame" x="532" y="6" width="51" height="31"/>
                                                     <constraints>
@@ -429,10 +432,12 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="trailingMargin" secondItem="n1x-wO-Ps6" secondAttribute="trailing" constant="11" id="0jH-N2-KaG"/>
+                                                <constraint firstItem="Qb4-g4-P5j" firstAttribute="centerY" secondItem="oKY-j7-pjD" secondAttribute="centerY" id="4q4-99-EW5"/>
                                                 <constraint firstItem="6Gd-iw-eGB" firstAttribute="centerY" secondItem="oKY-j7-pjD" secondAttribute="centerY" id="DD9-0p-fzt"/>
                                                 <constraint firstItem="6Gd-iw-eGB" firstAttribute="leading" secondItem="oKY-j7-pjD" secondAttribute="leadingMargin" constant="12" id="IsA-yk-iqJ"/>
                                                 <constraint firstItem="n1x-wO-Ps6" firstAttribute="centerY" secondItem="oKY-j7-pjD" secondAttribute="centerY" id="LBf-x0-ScR"/>
                                                 <constraint firstItem="n1x-wO-Ps6" firstAttribute="leading" secondItem="6Gd-iw-eGB" secondAttribute="trailing" id="REa-5p-OGr"/>
+                                                <constraint firstItem="Qb4-g4-P5j" firstAttribute="centerX" secondItem="oKY-j7-pjD" secondAttribute="centerX" id="uzr-Lh-hG4"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -657,6 +662,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Menu/Settings" id="5g5-un-mIJ"/>
                     <connections>
+                        <outlet property="activityIndicator" destination="Qb4-g4-P5j" id="Sef-OY-OAf"/>
                         <outlet property="sensitivitySliderOutlet" destination="9bi-GX-Zum" id="yws-gV-8pC"/>
                         <outlet property="videoQualityOutlet" destination="dt7-4c-byo" id="3Yv-Tt-6EJ"/>
                         <outlet property="videoStreamSwitchOutlet" destination="n1x-wO-Ps6" id="2Kk-Mk-S39"/>
@@ -665,6 +671,10 @@
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eBF-lV-aw7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" id="nNW-lA-aoT">
+                    <rect key="frame" x="0.0" y="0.0" width="20" height="20"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                </activityIndicatorView>
                 <exit id="by1-WL-Cvi" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="4091" y="338"/>
@@ -1187,6 +1197,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="0Kw-Tl-bf7"/>
+        <segue reference="EXl-q1-ILr"/>
     </inferredMetricsTieBreakers>
 </document>

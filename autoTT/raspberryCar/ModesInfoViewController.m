@@ -10,6 +10,7 @@
 #import "MainViewController.h"
 
 @interface ModesInfoViewController ()
+@property (strong, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 
 @end
 
@@ -25,12 +26,15 @@
             mainViewController.connectionTestTimer = nil;
         }
         [self performSegueWithIdentifier:@"unwindToCouldNotConnectFromModesInfoVC" sender:self];
+    } else if ([[notification name] isEqualToString:@"tcpReceivedInfoModes"]){
+        self.info.text = self.tcpConnection.messageReceived;
+        [self.info setNeedsDisplay];
+        [self.activityIndicator stopAnimating];
     }
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.info.text = self.infoString;
     // Do any additional setup after loading the view.
 }
 
@@ -45,12 +49,24 @@
                                              selector:@selector(receivedNotification:)
                                                  name:@"tcpError"
                                                object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(receivedNotification:)
+                                                 name:@"tcpReceivedInfoModes"
+                                               object:nil];
+    
+    [self.tcpConnection sendMessage:[NSString stringWithFormat:@"InfoModes#$#%ld", self.chosenInfo]];
+    [self.activityIndicator startAnimating];
 }
 
 - (void)viewWillDisappear:(BOOL)animated{
     // unregister for tcpConnection notifications
     [[NSNotificationCenter defaultCenter] removeObserver:self
                                                     name:@"tcpError"
+                                                  object:nil];
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                    name:@"tcpReceivedInfoModes"
                                                   object:nil];
 }
 

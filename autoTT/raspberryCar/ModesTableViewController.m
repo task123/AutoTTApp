@@ -29,6 +29,8 @@
             self.mainViewController.connectionTestTimer = nil;
         }
         [self performSegueWithIdentifier:@"unwindToCouldNotConnectFromModesVC" sender:self];
+    } else if ([[notification name] isEqualToString:@"tcpReceivedModes"]){
+        self.mainViewController.modesArray = [self.tcpConnection.messageReceived componentsSeparatedByString:@";"];
     }
 }
 
@@ -38,7 +40,8 @@
         popUpMessageViewController.tcpConnection = self.tcpConnection;
     } else if ([[segue identifier] isEqualToString:@"infoModes"]){
         ModesInfoViewController* modesInfoViewController = [segue destinationViewController];
-        modesInfoViewController.infoString = [self.mainViewController.modesInfoArray objectAtIndex:self.chosenInfo];
+        modesInfoViewController.chosenInfo = self.chosenInfo;
+        modesInfoViewController.tcpConnection = self.tcpConnection;
     }
 }
 
@@ -57,6 +60,13 @@
                                              selector:@selector(receivedNotification:)
                                                  name:@"tcpError"
                                                object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(receivedNotification:) name:@"tcpReceivedModes" object:nil];
+    
+    [self.tcpConnection sendMessage:@"Modes#$#"];
+    
+    
 }
 
 - (void)viewWillDisappear:(BOOL)animated{
@@ -67,6 +77,10 @@
     
     [[NSNotificationCenter defaultCenter] removeObserver:self
                                                     name:@"tcpError"
+                                                  object:nil];
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                    name:@"tcpReceivedModes"
                                                   object:nil];
 }
 
@@ -97,7 +111,7 @@
 {
     if (indexPath.row < self.mainViewController.modesArray.count){
         self.mainViewController.mode.title = [self.mainViewController.modesArray objectAtIndex:indexPath.row];
-        [self.tcpConnection sendMessage:[NSString stringWithFormat:@"ChosenMode#$# %ld", (long)indexPath.row]];
+        [self.tcpConnection sendMessage:[NSString stringWithFormat:@"ChosenMode#$#%ld", (long)indexPath.row]];
             self.chosenInfo = indexPath.row;
         [self performSegueWithIdentifier:@"unwindToMenuFromModes" sender:self];
     }

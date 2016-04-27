@@ -25,6 +25,7 @@
 @property CMMotionManager* motionManager;
 @property NSTimer* nsTimer;
 @property (strong, nonatomic) IBOutlet UISlider *sensitivitySliderOutlet;
+@property (strong, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 
 @end
 
@@ -35,6 +36,13 @@
         [self performSegueWithIdentifier:@"popUpMessage" sender:self];
     } else if ([[notification name] isEqualToString:@"tcpError"]){
         [self performSegueWithIdentifier:@"unwindToCouldNotConnectFromMenuVC" sender:self];
+    } else if ([[notification name] isEqualToString:@"tcpReceivedVideoStreamRefresh"]){
+        if (self.mainViewController.videoStreamOn){
+            [self.mainViewController stopVideoStream];
+            [self.mainViewController startVideoStream];
+        }
+    } else if ([[notification name] isEqualToString:@"tcpReceivedVideoStreamStarted"]){
+        [self.activityIndicator stopAnimating];
     }
 }
 
@@ -42,16 +50,22 @@
     if ([self.videoStreamSwitchOutlet isOn]){
         self.mainViewController.videoStreamOn = YES;
         [self.mainViewController startVideoStream];
+        [self sendVideoQuality];
         [self.tcpConnection sendMessage:@"VideoStream#$#On"];
+        [self.activityIndicator startAnimating];
     } else {
         self.mainViewController.videoStreamOn = NO;
         [self.mainViewController stopVideoStream];
         [self.tcpConnection sendMessage:@"VideoStream#$#Off"];
+        [self.activityIndicator stopAnimating];
     }
 }
 
 - (IBAction)videoQuality:(id)sender {
-    self.mainViewController.videoQuality = self.videoQualityOutlet.selectedSegmentIndex;
+    [[NSUserDefaults standardUserDefaults] setInteger:self.videoQualityOutlet.selectedSegmentIndex forKey:@"VideoQuality"];
+}
+
+- (void)sendVideoQuality{
     NSString *videoQuality;
     switch (self.videoQualityOutlet.selectedSegmentIndex) {
         case 0:
@@ -160,7 +174,7 @@
     } else {
         [self.videoStreamSwitchOutlet setOn:NO animated:NO];
     }
-    self.videoQualityOutlet.selectedSegmentIndex = self.mainViewController.videoQuality;
+    self.videoQualityOutlet.selectedSegmentIndex = [[NSUserDefaults standardUserDefaults] integerForKey:@"VideoQuality"];
     self.sensitivitySliderOutlet.minimumValue = 0.67;
     self.sensitivitySliderOutlet.maximumValue = 1.33;
     self.sensitivitySliderOutlet.value = self.mainViewController.gyroscopeData.sensitivity;
@@ -177,6 +191,16 @@
                                              selector:@selector(receivedNotification:)
                                                  name:@"tcpError"
                                                object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(receivedNotification:)
+                                                 name:@"tcpReceivedVideoStreamRefresh"
+                                               object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(receivedNotification:)
+                                                 name:@"tcpReceivedVideoStreamStarted"
+                                               object:nil];
 }
 
 - (void)viewWillDisappear:(BOOL)animated{
@@ -190,6 +214,14 @@
     
     [[NSNotificationCenter defaultCenter] removeObserver:self
                                                     name:@"tcpError"
+                                                  object:nil];
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                    name:@"tcpReceivedVideoStreamRefresh"
+                                                  object:nil];
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                    name:@"tcpReceivedVideoStreamStarted"
                                                   object:nil];
 }
 

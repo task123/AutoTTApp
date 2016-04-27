@@ -9,6 +9,7 @@
 #import "MainViewController.h"
 #import "MenuTableViewController.h"
 #import "PopUpMessageViewController.h"
+#import "VoiceRecognition.h"
 
 @interface MainViewController ()
 @property (strong, nonatomic) IBOutlet UIImageView *backgroundImage;
@@ -16,6 +17,7 @@
 @property (strong, nonatomic) IBOutlet UIButton *leftButton;
 @property (strong, nonatomic) IBOutlet UIButton *rightButton;
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *stopButtonOutlet;
+@property (strong, nonatomic) VoiceRecognition* voiceRecognition;
 
 @end
 
@@ -38,8 +40,6 @@
         [self.rightButton setHidden:YES];
     } else if ([[notification name] isEqualToString:@"tcpReceivedModes"]){
         self.modesArray = [self.tcpConnection.messageReceived componentsSeparatedByString:@";"];
-    } else if ([[notification name] isEqualToString:@"tcpReceivedInfoModes"]){
-        self.modesInfoArray = [self.tcpConnection.messageReceived componentsSeparatedByString:@";"];
     } else if ([[notification name] isEqualToString:@"tcpReceivedConnectionTest"]){
         if (self.connectionTestTimer) {
             [self.connectionTestTimer invalidate];
@@ -49,6 +49,13 @@
     } else if ([[notification name] isEqualToString:@"tcpReceivedConnectionTestStop"]){
         [self.connectionTestTimer invalidate];
         self.connectionTestTimer = nil;
+    } else if ([[notification name] isEqualToString:@"tcpReceivedVoiceRecognitionOn"]){
+        if (!self.voiceRecognition){
+            self.voiceRecognition = [[VoiceRecognition alloc] init];
+            [self.voiceRecognition startVoiceRecognition:self.tcpConnection];
+        }
+    } else if ([[notification name] isEqualToString:@"tcpReceivedVoiceRecognitionOff"]){
+        self.voiceRecognition = nil;
     }
 }
 
@@ -141,15 +148,19 @@
                                                   object:nil];
     
     [[NSNotificationCenter defaultCenter] removeObserver:self
-                                                    name:@"tcpReceivedInfoModes"
-                                                  object:nil];
-    
-    [[NSNotificationCenter defaultCenter] removeObserver:self
                                                     name:@"tcpReceivedConnectionTest"
                                                   object:nil];
     
     [[NSNotificationCenter defaultCenter] removeObserver:self
                                                     name:@"tcpReceivedConnectionTestStop"
+                                                  object:nil];
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                    name:@"tcpReceivedVoiceRecognitionOn"
+                                                  object:nil];
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                    name:@"tcpReceivedVoiceRecognitionOff"
                                                   object:nil];
 }
 
@@ -161,7 +172,6 @@
     NSString *VideoPort = [NSString stringWithFormat:@"%ld",[[[NSUserDefaults standardUserDefaults] stringForKey:@"Port"] integerValue] + 1];
     self.streamSourceURL = [NSString stringWithFormat:@"http://%@:%@",[[NSUserDefaults standardUserDefaults] stringForKey:@"IPAddress"],VideoPort];
     self.videoStreamOn = NO;
-    self.videoQuality = 2;
     
     [self.leftButton setHidden:YES];
     [self.rightButton setHidden:YES];
@@ -193,11 +203,6 @@
     
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(receivedNotification:)
-                                                 name:@"tcpReceivedInfoModes"
-                                               object:nil];
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(receivedNotification:)
                                                  name:@"tcpReceivedConnectionTest"
                                                object:nil];
     
@@ -206,8 +211,17 @@
                                                  name:@"tcpReceivedConnectionTestStop"
                                                object:nil];
     
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(receivedNotification:)
+                                                 name:@"tcpReceivedVoiceRecognitionOn"
+                                               object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(receivedNotification:)
+                                                 name:@"tcpReceivedVoiceRecognitionOff"
+                                               object:nil];
+    
     [self.tcpConnection sendMessage:@"Modes#$#"];
-    [self.tcpConnection sendMessage:@"InfoModes#$#"];
 }
 
 - (void)viewWillAppear:(BOOL)animated{

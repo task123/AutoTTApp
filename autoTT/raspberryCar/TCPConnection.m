@@ -143,7 +143,7 @@ Port{
                         NSString *message = [[NSString alloc] initWithBytes:buffer length:len encoding:NSASCIIStringEncoding];
                         
                         if (nil != message) {
-                            //NSLog(@"server said: %@", message);
+                            NSLog(@"server said: %@", message);
                             [self receivedMessage:message];
                         }
                     }

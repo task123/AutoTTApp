@@ -20,7 +20,6 @@
 
 @property (strong, nonatomic) NSString* streamSourceURL;
 @property BOOL videoStreamOn;
-@property NSInteger videoQuality;
 @property (strong, nonatomic) IBOutlet UINavigationItem *mode;
 @property (strong, nonatomic) NSArray* modesArray;
 @property (strong, nonatomic) NSArray* modesInfoArray;

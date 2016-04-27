@@ -7,9 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "TCPConnection.h"
 
 @interface ModesInfoViewController : UIViewController
+@property TCPConnection* tcpConnection;
 @property (strong, nonatomic) IBOutlet UITextView *info;
-@property (strong, nonatomic) NSString* infoString;
+@property NSInteger chosenInfo;
 
 @end
