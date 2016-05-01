@@ -8,18 +8,17 @@ This app was made as part of [this project](https://autottblog.wordpress.com), a
 This app is not uploaded to the App Store, but anyone is free to download the project, just compile it on Xcode (requires a mac) and upload it to an iOS device. The app is tested and works for Xcode 7.3 and iOS 9.3. (Remeber to change the iOS version when compiling it if you use another version.) As OpenEars is used for voice recognition, the OpenEars framework need to be installed to make the app work. Detajles of this is explained under the 'Voice Recognition' paragraph. If you do not wish to use voice recognition, the version of the app before the voice recognition was implemented is avalible under the 'beforeVoiceRecognition' branch. If anyone uploads it to the App Store, it would be nice to make the app free and post the name of the app here (preferably with a link) so other people simply can download it from the App Store. One should however swap the background picture of the main view and the app icon, as described in the 'Raspberry Pi Logo' paragraph. 
 
 ## Capabilities/features
-* Connect over WiFi with a tcp connection given a ip address and port number.
+* Connect over WiFi with a TCP connection given a ip address and port number.
 * Send data of the rotation of the iOS device (Ideal for controlling devices with gyroscope data from iPhone).
   * Can control the update speed of rotation data over the tcp connection.
   * Can adjust the sensitivity.
   * Can set the neutral tilting position. 
-* Can show webpages. Ideal for sending video stream from a http server. ( (https://github.com/task123/AutoTT) show a way of doing it. )
+* Can show webpages. Ideal for sending video stream from a http server. ( (https://github.com/task123/AutoTT) show a way of doing it. ) The default URL is the IP address used when initiating the TCP connection, and the same port pluss one ('IP address:port + 1).
   * Can easily switch the the video stream (webpage) on and off and change the video quality.
-  * Can send text messages over the tcp connection.
 * Gives the opportunity to select from a list of modes sendt to the iOS device over the tcp connection. (It sends a message of which mode you selected to the devices you are trying to control.)
   * Can give extra infomation about each of the modes if it is sendt to you iOS device.
 * Can show a list of paramerter indicating the status of the device you are trying to control. (temperatur, battery percentage, etc.)
-* Can send messages to and from your device.
+* Can send text messages to and from your device.
   * Message sendt to your iOS device will pop-up on your screen (unless you are in the message window).
 * It has two transparrent buttons on the left and right side of the main view
   * These can be turn on and off
