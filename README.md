@@ -29,6 +29,14 @@ This app is not uploaded to the App Store, but anyone is free to download the pr
 ## Voice recognition
 [OpenEars](http://www.politepix.com/openears/) is used for the primitive voice recognition the app is capable of, as most people we found online recommended this. OpenEars is free and allowed to upload to the AppStore, but not open source. (Even though the name would sugest otherwise.) The license for OpenEars only grant distribution of applications using OpenEars in binary form. The library and frameworks of OpenEars is therefor omitted. (We asked for permissing to share it as a whole, but OpenEars never replied.) The little code we have using OpenEars is left as it is, since it is more or less the same as the code from their nice [tutorial](http://www.politepix.com/openears/tutorial/) for 'Offline speech recognition'. This tutorial explains how to install and setup the library which is all you need to know to make the app work with full functionality. If you do not wish to use voice recognition, the version of the app before the voice recognition was implemented is avalible under the 'beforeVoiceRecognition' branch. There is also a small difference in how the 'InfoModes' command sendt to the app is used, so remember to use the branch's own 'README' file for referance.
 
+### Voice commands
+The app recognice the commands listed below. The word 'Car' must be clearly be separated from the next word for it to recognice the command.
+* CAR DRIVE
+* CAR RIGHT
+* CAR LEFT
+* CAR STOP
+* CAR HIGH (as in high beam, to turn the high beam on and off)
+
 ## How to communicate with it
 The app communicates over a tcp connection with text commands. (In addition to and seperate from the video stream (or webpage) it can receive over http). The general structure of these messages/commands is as follows; they start with the type of message followed by "#$#", then the message (or data) before it finishes with "%^%\r\n". Example: "Gyro#$#0.001238;1.234522;-2.209182%^%" One does not have to implement all this commands, only handle that they are sendt.
 
