@@ -74,8 +74,8 @@ The app communicates over a tcp connection with text commands. (In addition to a
 * ButtonsOff#$#%^%\r\n
 * ConnectionTest#$#"number of seconds between each time the connection test message is sendt"%^%\r\n
 * ConnectionTestStop#$#%^%\r\n
-* VoiceRecognitionOn#$#%^%\r\n
-* VoiceRecognitionOn#$#%^%\r\n
+* SpeechRecognitionOn#$#%^%\r\n
+* SpeechRecognitionOff#$#%^%\r\n
 
 ## Raspberry Pi Logo
 This is not an official Raspberry Pi app, so the Raspberry Pi Logo should not be used as it is a register trademark. If one wish to use the logo, one should follow the rules provided by the Raspberry Pi Foundation [here](https://www.raspberrypi.org/trademark-rules/). We have however decided to use the logo for our private project, as we can not see any harm in this. We have used the logo as background on the main view and incorporaded in the app icon. If you wish to upload the app to the App Store, you should change this.
