@@ -60,7 +60,7 @@ The app communicates over a tcp connection with text commands. (In addition to a
 * LeftButtonTouchUp#$#%^%\r\n
 * RightButtonTouchUp#$#%^%\r\n
 * ConnectionTest#$#%^%\r\n
-* VoiceRecogniction#$#"keyword recogniced (see voice recognition)"%^%\r\n
+* SpeechRecognition#$#"keyword recogniced (see speech recognition)"%^%\r\n
 
 ### Commands sendt to the app
 * Gyro#$#"number of seconds between each time gyroscopic data is sendt"%^%\r\n
